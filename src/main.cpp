@@ -22,12 +22,12 @@ int main(int argc, char **argv) {
     first.from_str(first_input);
     second.from_str(second_input);
 
-    std::cout << first.to_str() << std::endl;
-    std::cout << second.to_str() << std::endl;
+    std::cout << first << std::endl;
+    std::cout << second << std::endl;
 
     sum = first + second;
 
-    std::cout << sum.to_str() << std::endl;
+    std::cout << sum << std::endl;
 
     return 0;
 }

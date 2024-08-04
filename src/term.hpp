@@ -1,3 +1,4 @@
+#include <iostream>
 #include <sstream>
 #include <string>
 
@@ -9,19 +10,21 @@ class Term {
 
     Term(const Term &another);
 
-    void from_str(std::string str);
-
-    std::string to_str();
-
-    int get_exponent();
-
     Term &operator=(const Term &another);
 
-    Term &operator+(const Term &another);
+    Term operator+(const Term &another);
 
-    Term &operator-(const Term &another);
+    Term operator-(const Term &another);
 
-    Term operator-();
+    Term operator-() const;
+
+    friend std::ostream &operator<<(std::ostream &out, const Term &term);
+
+    void from_str(std::string str);
+
+    std::string to_str() const;
+
+    int get_exponent() const;
 
     ~Term() {}
 
