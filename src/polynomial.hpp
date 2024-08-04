@@ -1,29 +1,41 @@
+#include <iostream>
+#include <optional>
+#include <sstream>
 #include <string>
+#include <tuple>
+#include <vector>
+
+#include "term.hpp"
 
 class Polynomial {
   public:
-    Polynomial() {}
+    Polynomial(std::string polynomial_as_string) {
+        std::string left_side = polynomial_as_string.substr(0, polynomial_as_string.find("=") - 1);
+        std::string right_side = polynomial_as_string.substr(polynomial_as_string.find("=") + 2,
+                                                             polynomial_as_string.length());
 
-    bool parse(std::string polynomial_as_string) {
-        for (char i : polynomial_as_string) {
+        if (left_side.find("+") != std::string::npos) {
+            std::string splitted_by_plus_left = left_side.substr(0, left_side.find("+") - 1);
+
+            std::string splitted_by_plus_right =
+                left_side.substr(left_side.find("+") + 1, left_side.length());
+        } else {
         }
-
-        return true;
     }
 
-    std::optional<std::tuple<double, double>> solve() {
-        if (true) {
-            return std::nullopt;
-        }
+    // std::optional<std::tuple<double, double>> solve() {
+    //     if (true) {
+    //         return std::nullopt;
+    //     }
 
-        return std::make_tuple(0.0f, 0.0f);
-    }
+    //     return std::make_tuple(0.0f, 0.0f);
+    // }
 
     ~Polynomial() {}
 
   private:
-    uint8_t degree; // 2 is maximum for now
+    int degree; // 2 is maximum for now
 
-    std::vector<int64_t> coefficients;
-    std::vector<int64_t> powers;
+    std::vector<int> coefficients;
+    std::vector<int> powers;
 };

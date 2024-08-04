@@ -7,21 +7,27 @@
 
 #include "polynomial.hpp"
 
-class Solver {
-  public:
-  private:
-};
-
 int main(int argc, char **argv) {
-    Polynomial p;
-
-    if (!p.parse(argv[1])) {
-        std::cerr << "Provided polynomial equation is invalid" << std::endl;
-
-        return -1;
+    if (argc < 3) {
+        return 0;
     }
 
-    std::cout << "Polynomial solver\n";
+    std::string first_input = std::string(argv[1]);
+    std::string second_input = std::string(argv[2]);
+
+    Term first;
+    Term second;
+    Term sum;
+
+    first.from_str(first_input);
+    second.from_str(second_input);
+
+    std::cout << first.to_str() << std::endl;
+    std::cout << second.to_str() << std::endl;
+
+    sum = first + second;
+
+    std::cout << sum.to_str() << std::endl;
 
     return 0;
 }

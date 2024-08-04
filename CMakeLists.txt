@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-  ps # p - polynomial; s - solver
+  polynomial-solver
   VERSION 0.1
   LANGUAGES CXX)
 
