@@ -1,41 +1,25 @@
-#include <iostream>
-#include <optional>
-#include <sstream>
-#include <string>
-#include <tuple>
+#include <algorithm>
 #include <vector>
 
 #include "term.hpp"
 
 class Polynomial {
   public:
-    Polynomial(std::string polynomial_as_string) {
-        std::string left_side = polynomial_as_string.substr(0, polynomial_as_string.find("=") - 1);
-        std::string right_side = polynomial_as_string.substr(polynomial_as_string.find("=") + 2,
-                                                             polynomial_as_string.length());
+    Polynomial();
 
-        if (left_side.find("+") != std::string::npos) {
-            std::string splitted_by_plus_left = left_side.substr(0, left_side.find("+") - 1);
+    Polynomial(std::string str);
 
-            std::string splitted_by_plus_right =
-                left_side.substr(left_side.find("+") + 1, left_side.length());
-        } else {
-        }
-    }
+    void from_str(std::string str);
+    std::string to_str();
 
-    // std::optional<std::tuple<double, double>> solve() {
-    //     if (true) {
-    //         return std::nullopt;
-    //     }
+    void simplify();
 
-    //     return std::make_tuple(0.0f, 0.0f);
-    // }
-
-    ~Polynomial() {}
+    ~Polynomial();
 
   private:
-    int degree; // 2 is maximum for now
+    std::vector<Term> terms;
 
-    std::vector<int> coefficients;
-    std::vector<int> powers;
+    std::string preprocess(std::string str);
+    void construct(std::string str);
+    Term sum(std::vector<Term> summands);
 };

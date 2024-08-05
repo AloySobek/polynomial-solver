@@ -6,6 +6,8 @@ Term::Term() : coefficient{0.0f}, exponent{0} {}
 
 Term::Term(double coefficient, int exponent) : coefficient{coefficient}, exponent{exponent} {}
 
+Term::Term(std::string str) { from_str(str); }
+
 Term::Term(const Term &another) {
     coefficient = another.coefficient;
     exponent = another.exponent;
@@ -51,3 +53,5 @@ std::ostream &operator<<(std::ostream &out, const Term &term) {
 
     return out;
 }
+
+Term::~Term() {}

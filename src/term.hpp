@@ -8,6 +8,8 @@ class Term {
 
     Term(double coefficient, int exponent);
 
+    Term(std::string str);
+
     Term(const Term &another);
 
     Term &operator=(const Term &another);
@@ -26,7 +28,7 @@ class Term {
 
     int get_exponent() const;
 
-    ~Term() {}
+    ~Term();
 
   private:
     double coefficient;
