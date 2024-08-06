@@ -4,6 +4,8 @@ Polynomial::Polynomial() : terms{Term()} {}
 
 Polynomial::Polynomial(std::string str) { from_str(str); }
 
+Polynomial::Polynomial(const Polynomial &another) : terms{another.terms} {}
+
 void Polynomial::from_str(std::string str) { construct(preprocess(str)); }
 
 std::string Polynomial::to_str() {
@@ -55,6 +57,19 @@ void Polynomial::simplify() {
         terms.push_back(sum(firsts));
     if (seconds.size() > 0)
         terms.push_back(sum(seconds));
+}
+
+Polynomial &Polynomial::operator=(const Polynomial &another) {
+    if (&another != this) {
+        terms.clear();
+        terms.resize(another.terms.capacity());
+
+        for (auto &i : another.terms) {
+            terms.push_back(i);
+        }
+    }
+
+    return *this;
 }
 
 Polynomial::~Polynomial() {}

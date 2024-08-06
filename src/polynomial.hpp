@@ -9,10 +9,15 @@ class Polynomial {
 
     Polynomial(std::string str);
 
+    Polynomial(const Polynomial &another);
+
     void from_str(std::string str);
+
     std::string to_str();
 
     void simplify();
+
+    Polynomial &operator=(const Polynomial &another);
 
     ~Polynomial();
 

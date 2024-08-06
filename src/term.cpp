@@ -2,8 +2,6 @@
 
 #include "term.hpp"
 
-Term::Term() : coefficient{0.0f}, exponent{0} {}
-
 Term::Term(double coefficient, int exponent) : coefficient{coefficient}, exponent{exponent} {}
 
 Term::Term(std::string str) { from_str(str); }

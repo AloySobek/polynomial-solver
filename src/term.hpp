@@ -4,13 +4,17 @@
 
 class Term {
   public:
-    Term();
-
-    Term(double coefficient, int exponent);
+    Term(double coefficient = 0.0f, int exponent = 0);
 
     Term(std::string str);
 
     Term(const Term &another);
+
+    void from_str(std::string str);
+
+    std::string to_str() const;
+
+    int get_exponent() const;
 
     Term &operator=(const Term &another);
 
@@ -21,12 +25,6 @@ class Term {
     Term operator-() const;
 
     friend std::ostream &operator<<(std::ostream &out, const Term &term);
-
-    void from_str(std::string str);
-
-    std::string to_str() const;
-
-    int get_exponent() const;
 
     ~Term();
 
