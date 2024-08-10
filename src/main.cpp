@@ -5,7 +5,7 @@
 #include <tuple>
 #include <vector>
 
-#include "polynomial.hpp"
+#include <polynomial.hpp>
 
 int main(int argc, char **argv) {
     if (argc < 2) {
@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
 
     std::string input(argv[1]);
 
-    Polynomial p(input);
+    polynomial::Polynomial p(input);
 
     std::cout << p.to_str() << std::endl;
 

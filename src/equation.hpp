@@ -12,6 +12,6 @@ class Equation {
     ~Equation();
 
   private:
-    Polynomial left;
-    Polynomial right;
+    polynomial::Polynomial left;
+    polynomial::Polynomial right;
 };

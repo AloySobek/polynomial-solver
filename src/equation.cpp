@@ -1,6 +1,6 @@
 #include "equation.hpp"
 
-Equation::Equation() : left{Polynomial()}, right{Polynomial()} {}
+Equation::Equation() : left{polynomial::Polynomial()}, right{polynomial::Polynomial()} {}
 
 void Equation::from_str(std::string str) {}
 
